@@ -11,6 +11,7 @@ services:
       - .:/myapp
       - node_modules:/myapp/node_modules
       - bundle:/usr/local/bundle
+    container_name: sample_app
     ports:
       - 3000:3000
     depends_on:
