@@ -1,0 +1,30 @@
+-# .container
+-#   %h1.my-5.p-3
+-#     従業員一覧画面
+
+-#   %a.btn.btn-info{href: new_store_employee_path(@store)}
+-#     従業員情報作成
+
+-#   %table.table
+-#     %thead
+-#       %tr
+-#         %th
+-#           id
+-#         %th
+-#           従業員名
+-#         %th
+-#           操作
+-#     %tbody
+-#       - @employees.each do |employee|
+-#         %tr
+-#           %td
+-#             = employee.id
+-#           %td
+-#             = employee.name
+-#           %td
+-#             %a.btn.btn-primary{href: stores_path}
+-#               設定
+
+%h1
+  こんにちは
+  = current_employee.name
