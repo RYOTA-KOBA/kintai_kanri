@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'devise'
+
 gem 'haml-rails'
 
 # Use Active Storage variant

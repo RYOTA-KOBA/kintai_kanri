@@ -22,13 +22,13 @@ services:
   db:
     image: mysql:5.7
     ports:
-      - 3306:3306
+      - 4306:3306
     volumes:
       - db-data:/var/lib/mysql
     env_file:
       - ./env/development/db.env
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: root
 
 volumes:
