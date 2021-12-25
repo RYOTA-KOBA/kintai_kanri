@@ -1,0 +1,23 @@
+.container
+  %h1.my-5.p-3
+    店舗一覧画面
+
+  %table.table
+    %thead
+      %tr
+        %th
+          id
+        %th
+          店舗名
+        %th
+          操作
+    %tbody
+      - @stores.each do |store|
+        %tr
+          %td
+            = store.id
+          %td
+            = store.name
+          %td
+            %a.btn.btn-primary{href: store_path(store)}
+              設定

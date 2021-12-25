@@ -1,0 +1,8 @@
+- flash.each do |key, value|
+  - if key == 'notice'
+    %p{:class => "alert alert-secondary"}
+      = value
+  - else
+    %p{:class => "alert alert-danger"}
+      = value
+

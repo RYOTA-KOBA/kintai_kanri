@@ -1,0 +1,9 @@
+.container
+  %h1.my-5.p-3
+    従業員作成画面
+
+  = form_with url: store_employees_path(@store), method: :post, local: true do |f|
+    .form-group.mb-3
+      %label 従業員名
+      = f.text_field :name, class: 'form-control'
+    %button.btn.btn-primary.btn-lg.btn-block{type: :submit} 登録
