@@ -23,7 +23,6 @@ class StoresController < ApplicationController
   end
 
   def employee_params
-    binding.pry
     params.permit(:id, :store_id)
   end
 end
