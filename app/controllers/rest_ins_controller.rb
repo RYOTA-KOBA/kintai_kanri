@@ -1,0 +1,2 @@
+class RestInsController < ApplicationController
+end

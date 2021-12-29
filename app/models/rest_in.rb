@@ -1,0 +1,2 @@
+class RestIn < ApplicationRecord
+end

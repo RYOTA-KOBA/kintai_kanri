@@ -1,0 +1,18 @@
+.container
+  %h1
+    Myレコーダー
+  
+  .btn-wrapper.d-flex
+    = form_for @clock_in, url: clock_ins_path, method: :post do |f|
+      = f.submit '出勤', class: 'btn btn-primary'
+    = form_for @clock_out, url: clock_outs_path, method: :post do |f|
+      = f.submit '退勤', class: 'btn btn-primary'
+    -# %a.btn.btn-primary
+    -#   退勤
+    -# %a.btn.btn-info
+    -#   休憩始
+    -# %a.btn.btn-info
+    -#   休憩終
+
+  .flash_box.mt-5
+    = render 'layouts/flash'
