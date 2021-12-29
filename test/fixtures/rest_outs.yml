@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rest_out_time: 2021-12-29 13:24:42
+  rest_out_date: MyString
+
+two:
+  rest_out_time: 2021-12-29 13:24:42
+  rest_out_date: MyString

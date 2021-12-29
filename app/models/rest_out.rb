@@ -1,0 +1,2 @@
+class RestOut < ApplicationRecord
+end
