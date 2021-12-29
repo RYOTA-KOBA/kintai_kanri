@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_042442) do
+ActiveRecord::Schema.define(version: 2021_12_29_054507) do
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "clock_in", null: false, comment: "出勤時刻"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_042442) do
     t.string "clock_in_date", null: false, comment: "勤務開始時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "clock_outs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_042442) do
     t.string "clock_out_date", null: false, comment: "勤務終了時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_042442) do
     t.string "rest_in_date", null: false, comment: "休憩開時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "rest_outs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -59,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_042442) do
     t.string "rest_out_date", null: false, comment: "休憩終了時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "rests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
