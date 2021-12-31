@@ -15,7 +15,7 @@
       .container.d-flex.justify-content-between
         %a.navbar-brand{href: root_path} Navbar
         .navbar-contents-wrapper
-          %a{href: '#'}
+          %a{href: new_attendance_path}
             Myレコーダー
           = link_to 'タイムカード', root_path
           - if employee_signed_in?
