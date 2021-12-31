@@ -19,13 +19,25 @@
           休憩時間
         %th
           合計
+        %th
+          操作
     %tbody
-      -# - @stores.each do |store|
-      -#   %tr
-      -#     %td
-      -#       = store.id
-      -#     %td
-      -#       = store.name
-      -#     %td
-      -#       %a.btn.btn-primary{href: store_path(store)}
-      -#         設定
+      - @attendances.each do |attendance|
+        %tr
+          %td
+            = attendance.clock_in.clock_in_time.strftime("%m/%d")
+          %td
+            = attendance.clock_in.clock_in_time.strftime("%H:%M:%S")
+          %td
+            = attendance.clock_out.clock_out_time.strftime("%H:%M:%S")
+          %td
+            = attendance.rest_in.rest_in_time.strftime("%H:%M:%S")
+          %td
+            = attendance.rest_out.rest_out_time.strftime("%H:%M:%S")
+          %td
+            = attendance.rest_time
+          %td
+            = attendance.working_time
+          %td
+            %a.btn.btn-primary{href: '#'}
+              編集

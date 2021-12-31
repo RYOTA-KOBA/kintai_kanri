@@ -10,31 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_054507) do
+ActiveRecord::Schema.define(version: 2021_12_31_034146) do
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.datetime "clock_in", null: false, comment: "出勤時刻"
-    t.datetime "clock_out", null: false, comment: "退勤時刻"
+    t.integer "employee_id"
+    t.string "working_time", default: "", null: false, comment: "1日の働いた時間合計"
     t.string "rest_time", null: false, comment: "休憩時間の合計"
     t.integer "rest_id", null: false, comment: "休憩時間ID"
+    t.integer "clock_in_id", null: false
+    t.integer "clock_out_id", null: false
+    t.integer "rest_in_id"
+    t.integer "rest_out_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clock_ins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
     t.datetime "clock_in_time", null: false, comment: "勤務開始時刻"
     t.string "clock_in_date", null: false, comment: "勤務開始時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "clock_outs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
     t.datetime "clock_out_time", null: false, comment: "勤務終了時刻"
     t.string "clock_out_date", null: false, comment: "勤務終了時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -50,19 +54,19 @@ ActiveRecord::Schema.define(version: 2021_12_29_054507) do
   end
 
   create_table "rest_ins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
     t.datetime "rest_in_time", null: false, comment: "休憩開始時刻"
     t.string "rest_in_date", null: false, comment: "休憩開時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "rest_outs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "employee_id", null: false, comment: "従業員特定用id"
     t.datetime "rest_out_time", null: false, comment: "休憩終了時刻"
     t.string "rest_out_date", null: false, comment: "休憩終了時刻の日付"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "employee_id", null: false, comment: "従業員特定用id"
   end
 
   create_table "rests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
