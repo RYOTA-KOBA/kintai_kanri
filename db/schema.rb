@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_034146) do
+ActiveRecord::Schema.define(version: 2021_12_31_112414) do
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "employee_id"
-    t.string "working_time", default: "", null: false, comment: "1日の働いた時間合計"
-    t.string "rest_time", null: false, comment: "休憩時間の合計"
-    t.integer "rest_id", null: false, comment: "休憩時間ID"
-    t.integer "clock_in_id", null: false
-    t.integer "clock_out_id", null: false
+    t.integer "employee_id", null: false
+    t.string "working_time", comment: "1日の働いた時間合計"
+    t.string "rest_time", comment: "休憩時間の合計"
+    t.integer "rest_id", comment: "休憩時間ID"
+    t.integer "clock_in_id"
+    t.integer "clock_out_id"
     t.integer "rest_in_id"
     t.integer "rest_out_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "attendance_date", null: false, comment: "打刻日時"
   end
 
   create_table "clock_ins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

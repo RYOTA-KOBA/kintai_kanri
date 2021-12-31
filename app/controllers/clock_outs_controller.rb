@@ -5,7 +5,7 @@ class ClockOutsController < ApplicationController
     clock_out_date = clock_out_time.to_date.to_s
 
     # 同じ日にすでに打刻がないかチェック
-    if ClockOut.where(employee_id: current_employee.id, clock_out_date: clock_out_date).present?
+    if current_employee.clock_outs.where(clock_out_date: clock_out_date).present?
       redirect_to new_attendance_path, alert: '退勤打刻に失敗しました。すでに打刻が記録されています'
     else
       is_success = ActiveRecord::Base.transaction do

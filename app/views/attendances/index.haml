@@ -25,15 +25,20 @@
       - @attendances.each do |attendance|
         %tr
           %td
-            = attendance.clock_in.clock_in_time.strftime("%m/%d")
+            = attendance.created_at.strftime("%m/%d")
           %td
-            = attendance.clock_in.clock_in_time.strftime("%H:%M:%S")
+            - if attendance.clock_in.present?
+              = attendance.clock_in.clock_in_time.strftime("%H:%M:%S")
           %td
-            = attendance.clock_out.clock_out_time.strftime("%H:%M:%S")
+            - if attendance.clock_out.present?
+              = attendance.clock_out.clock_out_time.strftime("%H:%M:%S")
           %td
-            = attendance.rest_in.rest_in_time.strftime("%H:%M:%S")
+            - if attendance.rest_in.present?
+              = attendance.rest_in.rest_in_time.strftime("%H:%M:%S")
+            - else
           %td
-            = attendance.rest_out.rest_out_time.strftime("%H:%M:%S")
+            - if attendance.rest_out.present?
+              = attendance.rest_out.rest_out_time.strftime("%H:%M:%S")
           %td
             = attendance.rest_time
           %td
