@@ -12,6 +12,11 @@ class RestOutsController < ApplicationController
         rest_out = current_employee.rest_outs.create(rest_out_time: rest_out_time, rest_out_date: rest_out_date)
         attendance = current_employee.attendances.where(attendance_date: rest_out_date).first
         attendance.update(rest_out_id: rest_out.id)
+        rest_in = current_employee.rest_ins.find_by(rest_in_date: rest_out_date)
+
+        # 休憩時間の計算
+        rest_time = calculate_total_time(rest_out.rest_out_time, rest_in.rest_in_time)
+        attendance.update(rest_time: rest_time)
       end
 
       if is_success
