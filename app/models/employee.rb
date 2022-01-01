@@ -3,10 +3,10 @@ class Employee < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :attendances
-  has_many :clock_ins
-  has_many :clock_outs
-  has_many :rest_ins
-  has_many :rest_outs
+  has_many :attendances, dependent: :destroy
+  has_many :clock_ins, dependent: :destroy
+  has_many :clock_outs, dependent: :destroy
+  has_many :rest_ins, dependent: :destroy
+  has_many :rest_outs, dependent: :destroy
   belongs_to :store
 end

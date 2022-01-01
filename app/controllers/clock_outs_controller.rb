@@ -20,9 +20,9 @@ class ClockOutsController < ApplicationController
         working_time = calculate_total_time(working_time_include_rest, attendance.rest_time)
         # 労働合計が6時間以上なら強制的に休憩1時間、4時間以上なら45分追加
         working_time = if working_time > '06:00:00'
-                         (Time.parse(working_time) - 1.hours).strftime('%X')
+                         (Time.zone.parse(working_time) - 1.hour).strftime('%X')
                        elsif working_time > '04:00:00'
-                         (Time.parse(working_time) - 0.75.hours).strftime('%X')
+                         (Time.zone.parse(working_time) - 0.75.hours).strftime('%X')
                        else
                          working_time
                        end
