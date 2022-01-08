@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_112414) do
+ActiveRecord::Schema.define(version: 2022_01_08_023007) do
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "employee_id", null: false
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2021_12_31_112414) do
     t.integer "employee_id", null: false, comment: "従業員特定用id"
     t.datetime "clock_out_time", null: false, comment: "勤務終了時刻"
     t.string "clock_out_date", null: false, comment: "勤務終了時刻の日付"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dakokus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "dakoku_type", default: 0, null: false, comment: "打刻の種類"
+    t.integer "attendance_id", null: false, comment: "紐づく勤怠"
+    t.integer "employee_id", null: false, comment: "紐づく従業員"
+    t.datetime "dakoku_datetime", null: false, comment: "打刻した日時"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
