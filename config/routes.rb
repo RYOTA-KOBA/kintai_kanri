@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   root 'attendances#index'
   resources :attendances, only: [:index, :show, :new, :create, :destroy]
   resources :dakokus, only: [:index, :new, :create, :edit, :update]
-  resources :clock_ins, only: [:create, :destroy]
-  resources :clock_outs, only: [:create, :destroy]
-  resources :rest_ins, only: [:create, :destroy]
-  resources :rest_outs, only: [:create, :destroy]
   resources :stores, only: [:index, :show, :new, :create, :destroy] do
     resources :employees, only: [:index, :show, :new, :create, :destroy]
   end
