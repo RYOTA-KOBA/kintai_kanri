@@ -27,18 +27,21 @@
           %td
             = attendance.created_at.strftime("%m/%d")
           %td
-            - if attendance.clock_in.present?
-              = attendance.clock_in.clock_in_time.strftime("%H:%M:%S")
+            - attendance.dakokus.each do |dakoku|
+              - if dakoku.dakoku_type == 'syukkin'
+                = dakoku.dakoku_datetime.strftime("%H:%M:%S")
           %td
-            - if attendance.clock_out.present?
-              = attendance.clock_out.clock_out_time.strftime("%H:%M:%S")
+            - attendance.dakokus.each do |dakoku|
+              - if dakoku.dakoku_type == 'taikin'
+                = dakoku.dakoku_datetime.strftime("%H:%M:%S")
           %td
-            - if attendance.rest_in.present?
-              = attendance.rest_in.rest_in_time.strftime("%H:%M:%S")
-            - else
+            - attendance.dakokus.each do |dakoku|
+              - if dakoku.dakoku_type == 'kyukei_start'
+                = dakoku.dakoku_datetime.strftime("%H:%M:%S")
           %td
-            - if attendance.rest_out.present?
-              = attendance.rest_out.rest_out_time.strftime("%H:%M:%S")
+            - attendance.dakokus.each do |dakoku|
+              - if dakoku.dakoku_type == 'kyukei_end'
+                = dakoku.dakoku_datetime.strftime("%H:%M:%S")
           %td
             = attendance.rest_time
           %td
