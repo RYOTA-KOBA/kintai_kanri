@@ -2,6 +2,7 @@ FROM ruby:2.6.5-alpine
 
 RUN apk add --update --no-cache \
     build-base \
+    less \
     gmp-dev \
     libxslt-dev \
     libxml2-dev \

@@ -1,2 +1,23 @@
-%h1
-  打刻するとこ
+.container
+  %h1.my-5
+    Myレコーダー
+  .dakoku_btn_wrapper.d-flex
+    .mx-2
+      = form_for @dakoku, url: dakokus_path, method: :post do |f|
+        = f.hidden_field :dakoku_type, value: :syukkin
+        = f.submit '出勤', class: 'btn btn-primary'
+    .mx-2
+      = form_for @dakoku, url: dakokus_path, method: :post do |f|
+        = f.hidden_field :dakoku_type, value: :taikin
+        = f.submit '退勤', class: 'btn btn-primary'
+    .mx-2
+      = form_for @dakoku, url: dakokus_path, method: :post do |f|
+        = f.hidden_field :dakoku_type, value: :kyukei_start
+        = f.submit '休憩始', class: 'btn btn-primary'
+    .mx-2
+      = form_for @dakoku, url: dakokus_path, method: :post do |f|
+        = f.hidden_field :dakoku_type, value: :kyukei_end
+        = f.submit '休憩終', class: 'btn btn-primary'
+
+    .flash_box.mt-5
+      = render 'layouts/flash'

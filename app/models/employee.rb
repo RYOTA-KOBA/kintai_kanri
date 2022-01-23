@@ -8,5 +8,6 @@ class Employee < ApplicationRecord
   has_many :clock_outs, dependent: :destroy
   has_many :rest_ins, dependent: :destroy
   has_many :rest_outs, dependent: :destroy
+  has_many :dakokus, dependent: :destroy
   belongs_to :store
 end

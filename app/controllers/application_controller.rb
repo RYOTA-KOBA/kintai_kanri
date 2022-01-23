@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def calculate_total_time(out_time, in_time)
+    return out_time if in_time.nil?
     # 差分の計算
     diff = DateTime.parse(out_time.to_s) - DateTime.parse(in_time.to_s)
     sec = (diff * 24 * 60 * 60).to_i
